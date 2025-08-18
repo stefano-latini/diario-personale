@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nota</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="note.js"></script>
+</head>
+<body class="light">
+  <!-- SVG sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-home" viewBox="0 0 24 24">
+      <path d="M3 11l9-7 9 7v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H9v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24">
+      <path d="M3 6h18" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M10 11v6M14 11v6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.8" fill="none"/>
+    </symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l-1.5-1.5M20.5 20.5L19 19M5 19l-1.5 1.5M20.5 3.5L19 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <header class="note-header">
+    <input type="text" id="noteTitle" class="title-input" placeholder="Titolo">
+    <div class="toolbar">
+      <button id="backBtn" class="icon-btn" title="Torna alla home" aria-label="Home">
+        <svg><use href="#i-home"></use></svg>
+      </button>
+      <button id="deleteBtn" class="icon-btn" title="Elimina nota" aria-label="Elimina">
+        <svg><use href="#i-trash"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="note-main">
+    <textarea id="editor" class="editor" placeholder="Scrivi qui la tua nota..."></textarea>
+  </main>
+
+  <!-- Banner conferma eliminazione -->
+  <div id="confirmOverlay" class="overlay hidden">
+    <div class="confirm">
+      <div class="confirm-text">Eliminare definitivamente questa nota?</div>
+      <div class="confirm-actions">
+        <button id="confirmYes" class="btn danger">Elimina</button>
+        <button id="confirmNo" class="btn">Annulla</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
+    <svg id="themeIcon"><use href="#i-moon"></use></svg>
+  </button>
+</body>
+</html>
